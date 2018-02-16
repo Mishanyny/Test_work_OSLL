@@ -11,10 +11,10 @@ def calc_files(path):  # calculate result in one dir
     for i in path[2]:
         if type(i) == str:
 
-            if i[-2::] == 'py':
+            if i[-3::] != 'txt':
                 continue
 
-            f = open(path[0]+'\\'+i, 'r')
+            f = open(os.path.join(path[0],i), 'r')
             list_file += f.read().split()
         else:
             list_file.append(i)
