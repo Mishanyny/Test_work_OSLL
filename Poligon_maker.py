@@ -67,7 +67,7 @@ path = os.getcwd()
 main_path = path
 
 for i in range(int(inf[3][0])):
-    main_path += '\\' + act[rand(0,1)]
+    main_path = os.path.join( main_path, act[rand(0,1)])
 
 os.makedirs(main_path)
 inf[0][0] -= create_files(main_path,inf)
@@ -84,14 +84,14 @@ while inf[0][0] > 0:
         else:
             if 'add' in i[1]:
                 if rand(0, 2):
-                    os.makedirs(i[0]+'\\mul')
-                    inf[0][0] -= create_files(i[0]+'\\mul', inf)
+                    os.makedirs(os.path.join(i[0],'mul'))
+                    inf[0][0] -= create_files(os.path.join(i[0],'mul'), inf)
                 if len(i[2]) < inf[4][0]:
                     inf[0][0] -= create_files(i[0], inf)
             elif 'mul' in i[1]:
                 if rand(0, 2):
-                    os.makedirs(i[0]+'\\add')
-                    inf[0][0] -= create_files(i[0]+'\\add', inf)
+                    os.makedirs(os.path.join(i[0],'add'))
+                    inf[0][0] -= create_files(os.path.join(i[0],'add'), inf)
                 if len(i[2]) < inf[4][0]:
                     inf[0][0] -= create_files(i[0], inf)
             else:
