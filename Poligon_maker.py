@@ -67,10 +67,13 @@ path = os.getcwd()
 main_path = path
 
 for i in range(int(inf[3][0])):
+    if inf[0][0] <= 0:
+        print("You set a little num of files")
+        input("Press any key to continue...")
+        break
     main_path = os.path.join( main_path, act[rand(0,1)])
-
-os.makedirs(main_path)
-inf[0][0] -= create_files(main_path,inf)
+    os.makedirs(main_path)
+    inf[0][0] -= create_files(main_path,inf)
 
 while inf[0][0] > 0:
 
