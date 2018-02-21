@@ -74,8 +74,13 @@ for i in range(int(inf[3][0])):
     main_path = os.path.join( main_path, act[rand(0,1)])
     os.makedirs(main_path)
     inf[0][0] -= create_files(main_path,inf)
+    
+buf = 0
 
 while inf[0][0] > 0:
+    
+    if buf == inf[0][0]:
+        break
 
     buf_list = get_path_list(path)
 
