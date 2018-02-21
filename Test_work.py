@@ -10,10 +10,6 @@ def calc_files(path):  # calculate result in one dir
         buf = 1
     for i in path[2]:
         if type(i) == str:
-
-            if i[-3::] != 'txt':
-                continue
-
             f = open(os.path.join(path[0],i), 'r')
             list_file += f.read().split()
         else:
