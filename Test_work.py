@@ -25,6 +25,7 @@ def calc_files(path):  # calculate result in one dir
 
 def get_dir_list(dir):   # get list of directory
     direct_list = []
+    a = os.getcwd()
     direct_buf = os.walk(dir)
     for i in direct_buf:
         if (i[0][-3::]!='mul') and (i[0][-3::]!='add') and (i[0]!=a):
