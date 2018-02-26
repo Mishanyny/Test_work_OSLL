@@ -27,17 +27,21 @@ def get_dir_list(dir):   # get list of directory
     direct_list = []
     direct_buf = os.walk(dir)
     for i in direct_buf:
+        if (i[0][-3::]!='mul') and (i[0][-3::]!='add') and (i[0]!=a):
+            continue
         direct_list.append(i)
     return(direct_list)
 
 
 def calc_res(dir_list):
     while(1):
-        if not(dir_list[-1][1]):
+        if not('mul' in dir_list[-1][1]) or not('add' in dir_list[-1][1]):
             path = dir_list[-1]
             if (path[0][-3::] != 'add') and (path[0][-3::] != 'mul'):
-                print("Answer is :",path[2][-1])
-                return()
+                for i in path[2]:           # comm1
+                    if type(i) == int:
+                        print("Answer is :",i)
+                        return()
             buf = calc_files(path)
             for i in dir_list:
                 if i[0] == path[0][0:-4]:
